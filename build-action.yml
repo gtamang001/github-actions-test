@@ -1,0 +1,9 @@
+name: Build
+on: push
+jobs: 
+  build-job: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: just test line 
+        run: |
+          echo "Build stage is done "
