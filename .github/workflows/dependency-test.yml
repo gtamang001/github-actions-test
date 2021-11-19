@@ -1,4 +1,4 @@
-name: dependency test 
+name: Dependant job
 on:
   workflow_run:
     workflows: ["Build"]

@@ -6,4 +6,5 @@ jobs:
     steps: 
       - name: just test line 
         run: |
+      Make it fail
           echo "Build stage is done "
