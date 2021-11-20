@@ -8,9 +8,10 @@ jobs:
         run: |
           echo "Build stage is done "
       - name: create artifact and store it 
-        mkdir test 
-        cd test 
-        echo "This is the content of the text file " >> artifact.txt 
+        run: |
+          mkdir test 
+          cd test 
+          echo "This is the content of the text file " >> artifact.txt 
       - name: store artifact 
         uses: actions/upload-artifact@v2
         with: 
