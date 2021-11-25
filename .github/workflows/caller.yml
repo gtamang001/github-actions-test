@@ -8,8 +8,8 @@ on:
 jobs:
   build-ubuntu:
     name: called workflow  
-    uses: gtamang001/githu-actions-test/.github/workflows/on-call-workflow.yml@main
+    uses: gtamang001/github-actions-test/.github/workflows/on-call-workflow.yml@main
     with:
       runs-on: ubuntu-latest
-      
+
 
