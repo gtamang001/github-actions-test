@@ -4,11 +4,11 @@ jobs:
   build-job: 
     runs-on: ubuntu-latest
     steps: 
-      - name: just test line 
+      - name: Steps in the called workflow 
         run: |
-          echo "Build stage is done "
+          echo " From the called workflow "
       - name: create artifact and store it 
         run: |
-          mkdir test 
-          cd test 
-          echo "This is the content of the text file " >> artifact.txt 
+          echo "Some test statements .."
+          ls -lah
+          

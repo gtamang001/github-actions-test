@@ -1,0 +1,15 @@
+name: Build application
+
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  build-ubuntu:
+    name: called workflow  
+    uses: gtamang001/githu-actions-test/.github/workflows/on-call-workflow.yml@main
+    with:
+      runs-on: ubuntu-latest
+      
+
