@@ -1,7 +1,7 @@
+# this workflow is triggered via call from caller yml workflow or any other workflow s
 name: on call workflow 
 on: 
   - workflow_call
-  - workflow_dispatch
 jobs: 
   build-job: 
     runs-on: ubuntu-latest
