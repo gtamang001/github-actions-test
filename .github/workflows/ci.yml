@@ -19,5 +19,7 @@ jobs:
           name: artifact 
           path: |
             test/*
-      - name: build complete call CD now 
-        uses: gtamang001/github-actions-test/.github/workflows/cd.yml@cicd
+    call_cd: 
+      name: call cd 
+      uses: gtamang001/github-actions-test/.github/workflows/on-call-workflow.yml@main
+
