@@ -4,10 +4,11 @@ on:
   workflow_call:
   workflow_dispatch: 
 
-jobs:
-  test:
-  runs-on: ubuntu-latest
-  steps: 
-  - name: test
-    run: |
-      echo "Test STring echo on dispatch"
+jobs: 
+  CD-job: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: This is step in CD yml 
+        run: |
+          echo " From the CD  "
+          
