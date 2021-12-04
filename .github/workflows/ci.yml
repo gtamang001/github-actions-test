@@ -21,7 +21,7 @@ jobs:
             test/*
 
 
-  call_cd: 
+  call-cd: 
     name: call cd 
-    uses: gtamang001/github-actions-test/.github/workflows/on-call-workflow.yml@main
+    uses: gtamang001/github-actions-test/.github/workflows/cd.yml@cicd
 
