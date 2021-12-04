@@ -1,0 +1,6 @@
+# CI yml 
+# checkout code 
+# build code 
+# publish code 
+# call cd # 
+---Trigger CD yml 

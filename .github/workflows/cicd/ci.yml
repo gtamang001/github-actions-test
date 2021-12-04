@@ -1,0 +1,23 @@
+# this action is being called from another action 
+name: CI 
+on: push
+jobs: 
+  build-job: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout code and version set 
+        run: |
+          echo "Build stage is done "
+      - name: create artifact and store it 
+        run: |
+          mkdir test 
+          cd test 
+          echo "This is the content of the text file " >> artifact.txt 
+      - name: store artifact 
+        uses: actions/upload-artifact@v2
+        with: 
+          name: artifact 
+          path: |
+            test/*
+      - name: build complete call CD now 
+        uses: gtamang001/github-actions-test/.github/workflows/cicd/cd.yml@cicd
