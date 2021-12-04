@@ -20,4 +20,4 @@ jobs:
           path: |
             test/*
       - name: build complete call CD now 
-        uses: gtamang001/github-actions-test/.github/workflows/cicd/cd.yml@cicd
+        uses: gtamang001/github-actions-test/.github/workflows/cd.yml@cicd
