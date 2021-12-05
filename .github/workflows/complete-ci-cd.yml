@@ -34,6 +34,16 @@ jobs:
       - name: deploy to dev 
         run: |
           echo "this is running deploy to dev"
+  deploy-uat: 
+    if: ${{github.ref == 'refs/heads/uat'}}
+    runs-on: ubuntu-latest
+    environment: 
+      name: stage
+      url: https://github.com
+    steps: 
+      - name: deploy to dev 
+        run: |
+          echo "this is running deploy to uat"
 
 
 
