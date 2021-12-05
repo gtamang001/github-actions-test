@@ -4,7 +4,9 @@
 # deploy to dev
 # deploy to stage 
 name: CI-CD
-on: push
+on: 
+  push:
+    branches: [dev,uat]
 jobs: 
   build-job: 
     runs-on: ubuntu-latest
