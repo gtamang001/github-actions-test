@@ -25,9 +25,9 @@ jobs:
             test/*
   deploy-dev: 
     runs-on: ubuntu-latest
-      environment: 
-        name: dev
-        url: https://github.com
+    environment: 
+      name: dev
+      url: https://github.com
       steps: 
         - name: deploy to dev 
           run: |
