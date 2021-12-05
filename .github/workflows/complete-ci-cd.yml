@@ -28,10 +28,10 @@ jobs:
     environment: 
       name: dev
       url: https://github.com
-      steps: 
-        - name: deploy to dev 
-          run: |
-            echo "this is running deploy to dev"
+    steps: 
+      - name: deploy to dev 
+        run: |
+          echo "this is running deploy to dev"
 
 
 
