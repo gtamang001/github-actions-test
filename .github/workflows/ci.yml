@@ -1,6 +1,9 @@
 # this action is being called from another action 
 name: CI 
-on: push
+on:
+  push:
+    branches:
+      - cicd
 jobs: 
   build-job: 
     runs-on: ubuntu-latest
