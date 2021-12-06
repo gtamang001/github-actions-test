@@ -13,3 +13,7 @@ jobs:
         run: |
           echo "condition pass .."
           ls -lah
+      - name: multiple condition test 
+        if: ${{(startsWith(github.ref,'refs/heads') && (startsWith(github.ref,'refs/heads/ci')))}}
+      - name: multiple condition test 
+        if: ${{(startsWith(github.ref, 'refs/heads') || (startsWith(github.ref,'refs/heads/ci')))}}     
