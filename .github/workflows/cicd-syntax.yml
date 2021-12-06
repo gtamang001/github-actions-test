@@ -5,11 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: test condition fail
-        if: ${{startsWith(github.ref, cd)}}
+        if: ${{startsWith(github.ref, 'cd')}}
         run: |
           echo " condition fail "
       - name: test condition pass 
-        if: ${{startsWith(github.ref, ci)}}
+        if: ${{startsWith(github.ref, 'ci')}}
         run: |
           echo "condition pass .."
           ls -lah
