@@ -14,7 +14,7 @@ jobs:
           echo "condition pass .."
           ls -lah
       - name: multiple condition test  OR 
-        if: ${{(startsWith(github.ref,'refs/heads') && (startsWith(github.ref,'refs/heads/ci')))}}
+        if: ${{(startsWith(github.ref,'refs/heads') && (startsWith(github.ref,'refs/heads/cd')))}}
         run: |
           echo " OR condition test "
       - name: multiple condition test AND 
