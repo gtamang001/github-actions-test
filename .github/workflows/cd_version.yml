@@ -1,11 +1,11 @@
 name: Continuous Delivery Version
 on:
-  workflow_dispatch: 
-    inputs: 
-      name: user 
-      description: 'User'
-      required: true 
-      default: 'ganga'
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Person to greet'
+        required: true
+        default: 'ganga'
 
 jobs: 
   deploy-job: 
