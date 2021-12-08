@@ -1,20 +1,31 @@
 name: Continuous Integration Version 
-on: push
+on:
+  workflow_dispatch: 
+    inputs: 
+      name: user 
+      description: 'User'
+      required: true 
+      default: 'ganga'
+
 jobs: 
-  build-job: 
+  deploy-job: 
     runs-on: ubuntu-latest
+    environment: uat 
     steps: 
-      - name: checkout code and version set 
-        run: |
-          echo "Build stage is done "
-      - name: create artifact and store it 
-        run: |
-          mkdir test 
-          cd test 
-          echo "This is the content of the text file " >> artifact.txt 
-      - name: store artifact 
-        uses: actions/upload-artifact@v2
+      - name: checkout code 
+        uses: actions/checkout@v2
         with: 
-          name: artifact 
-          path: |
-            test/*
+          fetch-depth: '0'
+      - name: Version setup 
+        run: |
+          echo "Setting version"
+          version=$(git describe --tags --match "rel-[0-9]*-[0-9]*" | sed 's/-[^-]*//4g' | sed 's/rel-*//g' | sed 's/-/\./g')
+          echo "version=$version"
+          rm -f version.txt
+          touch version.txt
+          echo "${version}" > version.txt
+          echo "Version set to $(cat version.txt)"
+          echo "Version setup complete"
+      - name: Version compare 
+        run: |
+          echo "The current version is $(cat version.txt) "
