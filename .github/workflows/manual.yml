@@ -1,0 +1,31 @@
+name: Manual job 
+on:
+  workflow_dispatch:
+    inputs: 
+      name: 
+        type: choice 
+        description: options select 
+        options: 
+        - ganga
+        - sital 
+        - sam 
+        required: true 
+        default: ganga 
+
+
+jobs:
+  on-success:
+    runs-on: ubuntu-latest
+    steps:
+      - name: log success message 
+        run : |
+          echo "Run success message "
+      # - name: download artifact 
+      #   uses: actions/download-artifact@v2
+      #   with: 
+      #     name: artifact
+      # - name: check artifact download
+      #   run: |
+      #     echo "checking files "
+      #     ls -lah
+      #     cat test/artifact.txt
