@@ -1,4 +1,4 @@
-name: Continuous Integration Version 
+name: Continuous Delivery Version
 on:
   workflow_dispatch: 
     inputs: 
