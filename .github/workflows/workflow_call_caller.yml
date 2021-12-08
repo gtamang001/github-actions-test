@@ -1,9 +1,7 @@
 name: Build application
 
 on:
-  push:
-    branches:
-    - main
+  pull_request:
 jobs:
   job-A:
     name: called-workflow  
