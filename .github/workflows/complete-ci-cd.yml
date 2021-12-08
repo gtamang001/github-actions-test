@@ -6,7 +6,7 @@
 name: CI-CD
 on: 
   push:
-    branches: [dev,uat]
+    branches: [a,b]
 jobs: 
   build-job: 
     runs-on: ubuntu-latest
