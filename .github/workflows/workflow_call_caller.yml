@@ -7,6 +7,6 @@ on:
 jobs:
   job-A:
     name: called-workflow  
-    uses: gtamang001/github-actions-test/.github/workflows/on-call-workflow.yml@main
+    uses: gtamang001/github-actions-test/.github/workflows/workflow_call_called.yml@main
 
 
