@@ -1,7 +1,6 @@
 name: Build application
 
-on:
-  pull_request:
+on: workflow_dispatch
 jobs:
   job-A:
     name: called-workflow  
