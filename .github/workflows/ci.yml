@@ -1,6 +1,8 @@
 # this action is being called from another action 
 name: CI 
+
 on: workflow_dispatch
+
 jobs: 
   build-job: 
     runs-on: ubuntu-latest
@@ -23,5 +25,5 @@ jobs:
 
   call-cd: 
     name: call cd 
-    uses: gtamang001/github-actions-test/.github/workflows/cd.yml@cicd
+    uses: gtamang001/github-actions-test/.github/workflows/cd.yml@main
 

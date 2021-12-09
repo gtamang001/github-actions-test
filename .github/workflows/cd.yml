@@ -4,7 +4,6 @@ on:
   workflow_dispatch: 
   workflow_call:
   
-
 jobs: 
   CD-job: 
     runs-on: ubuntu-latest
@@ -12,4 +11,7 @@ jobs:
       - name: This is step in CD yml 
         run: |
           echo " From the CD  "
+
+
+          
           

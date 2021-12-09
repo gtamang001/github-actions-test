@@ -1,0 +1,4 @@
+# developers work on feature branch 
+# push to feature branch triggers ci build and scan 
+# PR to develop triggers ci build and scan and maven push 
+# 
