@@ -13,7 +13,7 @@ jobs:
     - name: Download artifact
       uses: dawidd6/action-download-artifact@v2
       with:
-        github_token: ${{env.GITHUB_TOKEN}}
+        github_token: ${{secrets.GITHUB_TOKEN}}
         workflow: workflow_run_caller.yml
 
         workflow_conclusion: success
