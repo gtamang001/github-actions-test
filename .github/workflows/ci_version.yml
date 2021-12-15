@@ -1,0 +1,28 @@
+name: Continuous Integration Version 
+on: 
+  workflow_dispatch:
+jobs: 
+  build-job: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout code 
+        uses: actions/checkout@v2
+        with: 
+          fetch-depth: '0'
+      - name: Version setup 
+        run: |
+          echo "Setting version"
+          version=$(git describe --tags --match "rel-[0-9]*-[0-9]*" | sed 's/-[^-]*//4g' | sed 's/rel-*//g' | sed 's/-/\./g')
+          echo "version=$version"
+          rm -f version.txt
+          touch version.txt
+          echo "${version}" > version.txt
+          echo "Version set to $(cat version.txt)"
+          echo "Version setup complete"
+      - name: test 
+        run: |
+          echo "completed the versioning.."
+          echo "Version while exiting the code is $(cat version.txt)"
+      - name: new change 
+        run: |
+          echo "new change 1.0.0.1"

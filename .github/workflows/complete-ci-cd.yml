@@ -1,0 +1,39 @@
+name: CICD workfow 
+on: 
+  push: 
+    branches-ignore: 
+      - master 
+  pull_request: 
+    types: [closed]
+    branches-ignore: 
+      - uat 
+
+jobs: 
+  # checkout: 
+  #   runs-on: ubuntu-latest 
+  #   steps: 
+  #     - name: checkout code 
+  #       uses: ations/checkout@v2
+  #     - name: checkout job 
+  #       run: |
+  #         echo "Running checkout "
+  # build: 
+  #   runs-on: ubuntu-latest
+  #   steps: 
+  #     - name: build job 
+  #       run: |
+  #         echo " Build job running "
+  merge-PR:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+  # deploy-uat: 
+  #   runs-on: ubuntu-latest
+  #   steps: 
+  #     - name: deploy job 
+  #       run: |
+  #         echo "Running deploy uat "

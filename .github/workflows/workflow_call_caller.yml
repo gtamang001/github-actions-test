@@ -1,0 +1,9 @@
+name: Build application
+
+on: workflow_dispatch
+jobs:
+  job-A:
+    name: called-workflow  
+    uses: gtamang001/github-actions-test/.github/workflows/workflow_call_called.yml@main
+
+
