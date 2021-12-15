@@ -5,8 +5,8 @@ on:
       - master 
   pull_request: 
     types: [closed]
-    branches-ignore: 
-      - uat 
+    branches-ignore:
+      - main
 
 jobs: 
   # checkout: 
