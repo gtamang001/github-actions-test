@@ -11,6 +11,10 @@ on:
         - sam 
         required: true 
         default: ganga 
+    branches-ignore: 
+      - cicd
+      - dev 
+      - uat 
 
 
 jobs:
