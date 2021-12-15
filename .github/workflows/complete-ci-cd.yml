@@ -6,7 +6,8 @@ on:
   pull_request: 
     types: [closed]
     branches-ignore: 
-      - uat 
+      - main
+      - feature 
 
 jobs: 
   # checkout: 
