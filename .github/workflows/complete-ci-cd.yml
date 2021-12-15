@@ -2,7 +2,7 @@ name: CICD workfow
 on: 
   push: 
     branches-ignore: 
-      - master 
+      - main
   pull_request: 
     types: [closed]
     branches-ignore:
