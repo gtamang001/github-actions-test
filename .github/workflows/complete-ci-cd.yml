@@ -18,12 +18,14 @@ jobs:
   #     - name: build job 
   #       run: |
   #         echo " Build job running "
-  debug: 
+  merge-PR:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    steps: 
-      - name: check vars 
-        run: |
-          echo ${{ toJson(github) }}
+    steps:
+      - name: Dump GitHub context
+         env:
+           GITHUB_CONTEXT: ${{ toJson(github) }}
+         run: echo "$GITHUB_CONTEXT"
   # deploy-uat: 
   #   runs-on: ubuntu-latest
   #   steps: 
