@@ -23,7 +23,7 @@ jobs:
     steps: 
       - name: check vars 
         run: |
-          echo " github.event.pull_request.merged "
+          echo ${{ toJson(github) }}
   # deploy-uat: 
   #   runs-on: ubuntu-latest
   #   steps: 
