@@ -1,0 +1,24 @@
+# this action will grab the artifact from another yml 
+name: Download artifact from another workflow 
+
+on:
+  push:
+    branches:
+    - uat
+
+jobs:
+  download-another-workflow-artifact: 
+    runs-on: ubuntu-latest
+    steps: 
+    - name: Download artifact
+      uses: dawidd6/action-download-artifact@v2
+      with:
+        github_token: ${{secrets.GITHUB_TOKEN}}
+        workflow: workflow_run_caller.yml
+
+        workflow_conclusion: success
+
+        check_artifacts:  true
+
+        search_artifacts: true
+    
