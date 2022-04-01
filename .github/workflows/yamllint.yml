@@ -11,5 +11,5 @@ jobs:
       - name: lint yamls 
         uses: ibiqlik/action-yamllint@v3 
         with: 
-          file_or_dir: .github/caller.yml .github/cd.yml 
+          file_or_dir: .github/caller.yml
 
