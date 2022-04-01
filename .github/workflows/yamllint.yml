@@ -1,0 +1,13 @@
+name: YAML LINK ACTION TEST 
+on: 
+  push: 
+
+jobs: 
+  lint: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout code 
+        uses: actions/checkout@v2
+      - name: lint yamls 
+        uses: ibiqlik/actions-yamlint@v3 
+        
