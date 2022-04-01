@@ -9,5 +9,5 @@ jobs:
       - name: checkout code 
         uses: actions/checkout@v2
       - name: lint yamls 
-        uses: ibiqlik/actions-yamlint@v3 
-        
+        uses: ibiqlik/action-yamlint@v3 
+
