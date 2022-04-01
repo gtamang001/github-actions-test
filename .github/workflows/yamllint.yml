@@ -10,4 +10,6 @@ jobs:
         uses: actions/checkout@v2
       - name: lint yamls 
         uses: ibiqlik/action-yamllint@v3 
+        with: 
+          file_or_dir: .github/caller.yml .github/cd.yml 
 
