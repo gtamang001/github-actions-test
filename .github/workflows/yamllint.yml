@@ -1,6 +1,8 @@
 name: YAML LINK ACTION TEST 
 on: 
   push: 
+    branches: 
+      - master
 
 jobs: 
   lint: 
