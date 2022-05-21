@@ -1,10 +1,6 @@
 # this action is being called from another action 
 name: Build
-<<<<<<< HEAD:.github/workflows/build-action.yml
-on: push
-=======
 on: workflow_dispatch
->>>>>>> main:.github/workflows/workflow_run_caller.yml
 jobs: 
   build-job: 
     runs-on: ubuntu-latest
