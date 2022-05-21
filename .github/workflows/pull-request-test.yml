@@ -1,6 +1,6 @@
 name: TEST OF PULL REQUEST FEATURES 
 on: 
-  pull-request: 
+  pull_request: 
 
 jobs: 
   test-pull-request: 
