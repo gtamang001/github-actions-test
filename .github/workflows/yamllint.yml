@@ -1,0 +1,17 @@
+name: YAML LINK ACTION TEST 
+on: 
+  push: 
+    branches: 
+      - master
+
+jobs: 
+  lint: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout code 
+        uses: actions/checkout@v2
+      - name: lint yamls 
+        uses: ibiqlik/action-yamllint@v3 
+        with: 
+          file_or_dir: .github/caller.yml
+

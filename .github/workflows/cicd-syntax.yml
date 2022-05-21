@@ -1,0 +1,23 @@
+on: 
+  pull_request:
+jobs: 
+  build-job: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: test condition fail
+        if: ${{startsWith(github.ref, 'refs/heads/cd')}}
+        run: |
+          echo " condition fail "
+      - name: test condition pass 
+        if: ${{startsWith(github.ref, 'refs/heads/ci')}}
+        run: |
+          echo "condition pass .."
+          ls -lah
+      - name: multiple condition test  OR 
+        if: ${{(startsWith(github.ref,'refs/heads') || startsWith(github.ref,'refs/heads/ci'))}}
+        run: |
+          echo " OR condition test "
+      - name: multiple condition test AND 
+        if: ${{(startsWith(github.ref, 'refs/heads') && startsWith(github.ref,'refs/heads/pkgi'))}}     
+        run: |
+          echo " AND condition working "

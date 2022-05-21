@@ -1,0 +1,11 @@
+name: TEST OF PULL REQUEST FEATURES 
+on: 
+  pull_request: 
+
+jobs: 
+  test-pull-request: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Test of pull request 
+        run: |
+          echo "Test where you are ${{github.ref}}"
