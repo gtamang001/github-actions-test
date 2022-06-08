@@ -1,8 +1,8 @@
 name: TEST OF PULL REQUEST FEATURES 
 on: 
   pull_request: 
-  branches: 
-    - main
+    branches: 
+      - main
 
 jobs: 
   test-pull-request: 
