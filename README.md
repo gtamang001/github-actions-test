@@ -1,4 +1,4 @@
-# githuh-actions-test
+# github-actions-test
 This repo is a laboratory for testing various action triggers offered by github. 
 
 Most actions are focused on CICD ability. 
