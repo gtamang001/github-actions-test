@@ -1,0 +1,17 @@
+name: Context testing
+on: 
+  workflow_dispatch: 
+
+jobs:
+  TEST:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        run: |
+          echo "Actor from context"
+          echo '${{github.actor}}'
+
+      - name: print actor values 
+        run: |
+          echo "Actor from env"
+          echo $GITHUB_ACTOR

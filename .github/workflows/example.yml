@@ -1,0 +1,11 @@
+on: 
+  pull_request: 
+    branches: 
+      - example 
+jobs: 
+  test-pull-request: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Test run 
+        run: |
+          echo "Test run ..."

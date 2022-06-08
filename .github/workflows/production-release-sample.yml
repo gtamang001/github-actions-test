@@ -1,0 +1,46 @@
+name: Release workflow 
+on: 
+  push: 
+    tags: 
+      - 'rel-[0-9]*-[0-9]*'
+     
+jobs: 
+  production-gate-check: 
+    runs-on: ubuntu-latest 
+    steps: 
+      - name: production check pass log 
+        if: ${{github.event.base_ref == 'refs/heads/uat'}}
+        run: |
+          echo " workflow trigger on ${{github.ref}} "
+          echo " tag created from  ${{github.event.base_ref}} "
+          echo " checks passed continue "
+      - name: production check fail log
+        if: ${{github.event.base_ref != 'refs/heads/uat'}}
+        run: |
+          echo "workflow trigge on ${{github.ref}}"
+          echo "tag created from ${{github.event.base_ref}} "
+          echo "Failing the workflow, please make sure to create a proper tag from uat branch for release "
+          exit 1 
+  maven-deploy: 
+    needs: production-gate-check
+    runs-on: ubuntu-latest 
+    steps: 
+      - name: build job 
+        run: |
+          echo "Running just a test job"
+  docker-deploy: 
+    needs: maven-deploy
+    runs-on: ubuntu-latest
+    if: ${{ startsWith(github.ref, 'refs/tags/rel-')}}
+    steps: 
+      - name: open gate 
+        run: |
+          echo "Build passed opening the gate "
+  prod-deploy: 
+    needs: docker-deploy
+    environment: prod
+    runs-on: ubuntu-latest
+    steps: 
+      - name: deploy job 
+        run: |
+          echo "Running deploy job"

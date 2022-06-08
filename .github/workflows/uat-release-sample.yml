@@ -1,0 +1,77 @@
+name: SNAPSHOT workflow 
+on: 
+  push: 
+    branches-ignore: 
+      - main 
+      - feature 
+      
+jobs: 
+  checkout-code: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout code 
+        uses: actions/checkout@v2
+        with: 
+          fetch-depth: '0'
+      - name: Version setup 
+        run: |
+          echo "Setting version"
+          version=$(git describe --tags --match "rel-[0-9]*-[0-9]*" | sed 's/-[^-]*//4g' | sed 's/rel-*//g' | sed 's/-/\./g')
+          echo "version=$version"
+          rm -f version.txt
+          touch version.txt
+          echo "${version}" > version.txt
+          echo "Version set to $(cat version.txt)"
+          echo "Version setup complete"
+  maven-build: 
+    needs: checkout-code
+    runs-on: ubuntu-latest
+    steps: 
+      - name: running build 
+        run: |
+          echo "Maven build step"
+  cd-gate: 
+    needs: maven-build 
+    runs-on: ubuntu-latest
+    if: ${{github.ref == 'refs/heads/uat'}}
+    steps: 
+      - name: Openig continuos Delivery 
+        run: |
+          echo "Start continuous Delivery using ${{github.ref}} "
+  sonar-scan: 
+    needs: cd-gate 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: sonar scan 
+        run: |
+          echo "Running sonar scan "
+  sonar-result: 
+    needs: sonar-scan 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: sonar result 
+        run: |
+          echo "Sonar result passed "
+  maven-push: 
+    needs: sonar-result 
+    runs-on: ubuntu-latest 
+    steps: 
+      - name: maven build snapshot 
+        run: | 
+          echo " maven build "
+  docker-build: 
+    needs: maven-push  
+    runs-on: ubuntu-latest 
+    steps: 
+      - name: docker build push 
+        run: |
+          echo "Docker build and push "
+  
+  deploy-uat: 
+    environment: uat 
+    needs: docker-build 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: deploy job 
+        run: |
+          echo "Uat deploy "

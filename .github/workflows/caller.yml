@@ -1,4 +1,4 @@
-name: Build application
+name: CALLER WORKFLOW 
 
 on:
   push:
