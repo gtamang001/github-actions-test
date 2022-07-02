@@ -1,0 +1,50 @@
+# tet workflow 
+name: test yaml 
+on:
+  workflow_dispatch:   
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+
+    steps:  
+      - name: Pass the received secret to an action
+        uses: actions/checkout@v2
+        with: 
+          fetch-depth: '0'
+      - name: intall python 
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+          architecture: 'x64'
+      - name: check the content of ssh folder
+        run: | 
+          echo " checking .."
+          scp
+          # ssh keygen
+      
+      - name: test version 
+        run: |
+          python --version
+      - name: bash approach
+        run: |
+          git diff --name-only 35f454a $GITHUB_SHA >> changedfile.txt
+          mkdir release-folder
+          file=changedfile.txt
+          lines=$(cat  $file)
+          for line in $lines
+            do cp $line release-folder 
+          done
+          echo "check release folder"
+          cd release-folder
+          ls -lah
+      # - name: grab the diff
+      #   run: |
+      #     git diff --name-only 35f454a $GITHUB_SHA >> changedfile.txt
+      #     echo "Git diff applied"
+      #     echo "check all files"
+      #     ls -lah
+      # - name: run python 
+      #   run: |
+      #     python python.py
+# initial commit  35f454a
+# head commit 108081c
