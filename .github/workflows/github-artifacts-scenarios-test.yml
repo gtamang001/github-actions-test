@@ -1,0 +1,78 @@
+# test the artifact process of github actions different scenarios
+name: actions to test github artifacts
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  # Also trig
+jobs: 
+  create-artifact:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout 
+        uses: actions/checkout@v2
+      - name: test artifact scenario one 
+        run: | 
+          echo "Testing scenario 1"
+          echo "this is content of home folder and one file content" >> onefile.txt
+          mkdir test-dir 
+          cd test-dir
+          echo "sample test inside this and " >> sample.txt 
+          mkdir inside-test-dir
+          cd inside-test-dir
+          echo "I am the inside sample dir test txt " >> inside-test-sample.txt 
+          echo "just another file " >> just-another-file.txt
+      - name: copy files 
+        run: |
+          mkdir -p target
+          cp onefile.txt target 
+          cp -r test-dir target 
+          pwd
+          ls -lah
+ # use the env variable syntax to grab the values 
+      - name: create artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: all-artifacts
+          path: |
+            target/*
+            ${{github.workspace}}/onefile.txt
+
+      # - name: create just one file 
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     path: onefile.txt 
+
+  download-artifact: 
+    needs: create-artifact
+    runs-on: ubuntu-latest
+    if: ${{github.ref == 'refs/heads/test' || github.ref == 'refs/heads/main'}}
+    steps: 
+      - name: download all 
+        uses: actions/download-artifact@v2
+        with: 
+          name: all-artifacts
+        
+      - name: check after download 
+        run: ls -lR
+  prod-check: 
+    needs: download-artifact
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/test'}}
+    steps:
+      - name: prod ready pass 
+        run: |
+          echo " Production readiness check passed "
+  prod-deploy:
+    needs: prod-check
+    runs-on: ubuntu-latest
+    steps: 
+      - name: prod deploy 
+        run: |
+          echo "We are here we might as well deploy now"
+      
