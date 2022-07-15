@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: conditionalize on id 
         id: path
-        if: ${{gihub.ref == 'refs/heads/feature-action-id'}}
+        if: ${{github.ref == 'refs/heads/feature-action-id'}}
         run: |
           echo "running the feature action id branch stuff"
           PATH="From feature action id"
