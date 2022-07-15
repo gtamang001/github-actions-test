@@ -17,11 +17,11 @@ jobs:
           if [ "$GIT_REF" = "refs/heads/feature-action-id" ]; then
           echo "Environment is setting for feature action id branch"
           PATH="From feature action id"
-          echo '::set-output name=PATH::$PATH'
+          echo "::set-output name=PATH::$PATH"
           else
           echo "Environment is setting for non feature action id branch"
           PATH="From non feature action id"
-          echo '::set-output name=PATH::$PATH'
+          echo "::set-output name=PATH::$PATH"
           fi
         shell: bash
         env: 
@@ -32,5 +32,5 @@ jobs:
         run: |
           echo "Testing the PATH values"
           echo "Which path"
-          environment=${{steps.path.outputs.environment.PATH}}
+          environment=${{steps.environment.outputs.PATH}}
           echo "Path extracted is $environment"
