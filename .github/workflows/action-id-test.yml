@@ -3,6 +3,7 @@ on:
   push: 
     branches: 
       - feature-action-id
+      - main
 
 jobs:
   TEST:
