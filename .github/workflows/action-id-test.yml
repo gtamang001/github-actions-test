@@ -32,5 +32,5 @@ jobs:
         run: |
           echo "Testing the PATH values"
           echo "Which path"
-          environment=${{steps.environment.outputs.PATH}}
+          environment='${{steps.environment.outputs.PATH}}'
           echo "Path extracted is $environment"
