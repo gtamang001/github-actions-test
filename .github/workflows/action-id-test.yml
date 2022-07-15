@@ -33,4 +33,4 @@ jobs:
           echo "Testing the PATH values"
           echo "Which path"
           environment=${{steps.path.outputs.id.PATH}}
-          echo"Path extracted is $environment"
+          echo "Path extracted is $environment"
