@@ -8,17 +8,25 @@ jobs:
   TEST:
     runs-on: ubuntu-latest
     steps:
-      - name: conditionalize on id 
-        id: path
-        run: |
+      - name: dev setup
+        id: environment
         if: ${{github.ref == 'refs/heads/feature-action-id'}}
+        run: |
           echo "running the feature action id branch stuff"
+          set -x
+          if [ "$GIT_REF" = "refs/heads/feature-action-id" ]; then
+          echo "Environment is setting for feature action id branch"
           PATH="From feature action id"
           echo '::set-output name=PATH::$PATH'
-        if: ${{github.ref != 'refs/heads/feature-action-id'}}
-          echo "This is running non feature action id now"
+          else
+          echo "Environment is setting for non feature action id branch"
           PATH="From non feature action id"
           echo '::set-output name=PATH::$PATH'
+          fi
+        shell: bash
+        env: 
+          GIT_REF: ${{github.ref}}
+
 
       - name: Consume 
         run: |
