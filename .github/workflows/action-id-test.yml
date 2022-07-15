@@ -1,0 +1,28 @@
+name: Context testing
+on: 
+  push: 
+    branches: 
+      - feature-action-id
+
+jobs:
+  TEST:
+    runs-on: ubuntu-latest
+    steps:
+      - name: conditionalize on id 
+        id: path
+        if: ${{gihub.ref == 'refs/heads/feature-action-id'}}
+        run: |
+          echo "running the feature action id branch stuff"
+          PATH="From feature action id"
+          echo '::set-output name=PATH::$PATH'
+        if: ${{github.ref != 'refs/heads/feature-action-id'}}
+        run: |
+          echo "This is running non feature action id now"
+          PATH="From non feature action id"
+          echo '::set-output name=PATH::$PATH'
+
+      - name: Consume 
+        run: |
+          echo "Testing the PATH values"
+          echo "Which path"
+          environment=${{steps.path.outputs.id.PATH}}
