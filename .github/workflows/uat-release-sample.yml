@@ -1,9 +1,6 @@
 name: SNAPSHOT workflow 
 on: 
-  push: 
-    branches-ignore: 
-      - main 
-      - feature 
+  workflow_dispatch:
       
 jobs: 
   checkout-code: 
