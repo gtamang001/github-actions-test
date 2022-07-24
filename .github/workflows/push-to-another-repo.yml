@@ -1,0 +1,25 @@
+name: PUSH TO ANOTHER REPO
+on: 
+  push: 
+    branches: 
+      - test-push
+
+jobs: 
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: gtamang001/ansible-action-poc
+          ref: 'main'
+          token:  ${{ secrets.PAT }}
+      - name: setup git config
+        run: |
+          git config user.name "gtamang001"
+          git config user.email "ganga.bomzan@gmail.com"
+      - name: My changes
+        run: |
+          echo "Check the files"
+          ls -lah
+      
+      - run: git push origin master
