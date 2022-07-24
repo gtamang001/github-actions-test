@@ -21,5 +21,13 @@ jobs:
         run: |
           echo "Check the files"
           ls -lah
+          mkdir TEST_DIR
+          touch test-file.txt
+          echo "Test File content" >> test-file.txt
       
-      - run: git push origin master
+      - name: Push changes
+        run: |
+         git status
+         git add -A
+         git commit -m "Commit from another repo" 
+         git push origin main
