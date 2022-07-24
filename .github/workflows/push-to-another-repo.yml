@@ -13,10 +13,14 @@ jobs:
           repository: gtamang001/ansible-action-poc
           ref: 'main'
           token:  ${{ secrets.PAT }}
-      - name: setup git config
+      - name: setup git 
+        id: run
         run: |
-          git config user.name "gtamang001"
-          git config user.email "ganga.bomzan@gmail.com"
+          git config user.name "$USER"
+          git config user.email "$EMAIL"
+        env: 
+          EMAIL: ${{secrets.EMAIL}}
+          USER: ${{secrets.USER}}
       - name: My changes
         run: |
           echo "Check the files"
