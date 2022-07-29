@@ -30,4 +30,5 @@ jobs:
           fetch-depth: '0'
       - name: check the files 
         run: |
+          git pull origin
           ls -lah
