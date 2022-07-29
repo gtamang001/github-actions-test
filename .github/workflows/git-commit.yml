@@ -1,0 +1,32 @@
+name: Test commit 
+on: 
+  push: 
+    branches: 
+      - feature-action-id
+
+
+jobs: 
+  commit: 
+    run-on: ubuntu-latest
+    steps: 
+      - name: checkout 
+        uses: actions/checkout@v3
+      - name: add a commit 
+        run: |
+          touch commit-file.txt 
+          echo "contnet" > commit-file.txt
+          git config --local user.email "ganga.bomzan@gmail.com"
+          git config --local user.name "Ganga Tamang"
+          git add -A
+          git commit -m "made the commit"
+          git push origin HEAD
+  test-commit:
+    run-on: ubuntu-latest
+    steps: 
+      - name: checkout 
+        uses: actions/checkout@v3
+        with: 
+          fetch-depth: '0'
+      - name: check the files 
+        run: |
+          ls -lah
