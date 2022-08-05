@@ -1,8 +1,5 @@
 name: Makes a cron commit 
 on:
-  push: 
-    branches: 
-      - feature-action-id
   schedule:
     - cron:  '0 0 * * *'
 jobs: 
