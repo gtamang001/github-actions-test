@@ -1,7 +1,11 @@
 name: Makes a cron commit 
 on:
   schedule:
+<<<<<<< HEAD
     - cron:  "0 0 * * *"
+=======
+    - cron: '0 8 * * *'
+>>>>>>> 0646744 (does it work)
 jobs: 
   cron-commit:
     runs-on: ubuntu-latest
