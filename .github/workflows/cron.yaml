@@ -28,4 +28,4 @@ jobs:
           git config --local user.name "Ganga Tamang"
           git add -A
           git commit -m "added todays date"
-          git push origin HEAD
+          git push origin
