@@ -1,0 +1,13 @@
+name: REPOSITORY DISPATCH CALLER 
+on: 
+  push:
+    branches:
+      - dispatch
+jobs:
+  repository-dispatch-caller:
+    runs-on: ubuntu-latest
+    steps:
+      - name: call with dispatch
+        run: 
+          echo "initiating the call"
+          
