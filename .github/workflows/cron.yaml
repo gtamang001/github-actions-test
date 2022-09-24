@@ -17,12 +17,12 @@ jobs:
           if [ -f "$FILE" ]; then
               echo "$FILE exists."
               echo "making the commit"
-              echo $date > commit-file.txt
+              date > commit-file.txt
           else 
               echo "$FILE does not exist."
               touch commit-file.txt
               echo "making the commit now"
-              echo $date > commit-file.txt
+              date > commit-file.txt
           fi
           git config --local user.email "ganga.bomzan@gmail.com"
           git config --local user.name "Ganga Tamang"
