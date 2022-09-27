@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - dispatch
-    repository_dispatch:
-      types: [return-event]
+  repository_dispatch:
+    types: [return-event]
 jobs:
   repository-dispatch-caller:
     runs-on: ubuntu-latest
