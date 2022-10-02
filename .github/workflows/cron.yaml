@@ -1,7 +1,10 @@
 name: Makes a cron commit 
 on:
-  schedule:
-    - cron: '0 8 * * *'
+  push: 
+    branches:
+      - outputs
+  # schedule:
+  #   - cron: '0 8 * * *'
 jobs: 
   cron-commit:
     runs-on: ubuntu-latest
@@ -12,12 +15,14 @@ jobs:
           fetch-depth: '0'
       - name: commit it 
         run: |
+          set -x
           git status
           FILE=commit-file.txt
           if [ -f "$FILE" ]; then
               echo "$FILE exists."
               echo "making the commit"
               date > commit-file.txt
+              cat commit-file.txt
           else 
               echo "$FILE does not exist."
               touch commit-file.txt
