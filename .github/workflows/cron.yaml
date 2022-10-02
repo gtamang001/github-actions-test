@@ -1,10 +1,8 @@
 name: Makes a cron commit 
 on:
   push: 
-    branches:
-      - outputs
-  # schedule:
-  #   - cron: '0 8 * * *'
+  schedule:
+    - cron: '0 8 * * *'
 jobs: 
   cron-commit:
     runs-on: ubuntu-latest
