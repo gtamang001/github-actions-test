@@ -12,6 +12,6 @@ jobs:
         # if: ${{ github.event.label == 'major'}}
         run: |
           echo '${{ toJSON(github.event) }}'
-          ${{ toJSON(github.event.pull_request.labels) }} > labels.json
+          '${{ toJSON(github.event.pull_request.labels) }}' > labels.json
           cat labels.json
-          jq --help
+          # jq --help
