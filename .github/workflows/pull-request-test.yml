@@ -1,8 +1,9 @@
 name: TEST OF PULL REQUEST FEATURES 
 on: 
-  pull_request:
-    types:
-      - ready_for_review
+  push:
+  # pull_request:
+  #   types:
+  #     - ready_for_review
 
 jobs: 
   test-pull-request-major:
@@ -11,7 +12,7 @@ jobs:
       - name: Test of pull request 
         # if: ${{ github.event.label == 'major'}}
         run: |
-          cat workflow/event.json
+          cat ${{github.github_event_path}}/workflow/event.json
           # echo '${{ toJSON(github.event) }}'
           # echo '${{ toJSON(github.event.pull_request.labels) }}' > labels.json
           # echo "cat labels .... json" 
