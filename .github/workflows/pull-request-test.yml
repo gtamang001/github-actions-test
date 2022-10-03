@@ -19,7 +19,7 @@ jobs:
         run: |
           echo "Test where you are  minor ${{github.event.pull_request.label}}"
   test-pull-request-patch: 
-    if: ${{ github.event.pull_request.label == bug }}
+    if: ${{ github.event.pull_request.label == 'bug' }}
     runs-on: ubuntu-latest
     steps: 
       - name: Test of pull request
