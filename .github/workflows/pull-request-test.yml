@@ -13,4 +13,4 @@ jobs:
         run: |
           # echo '${{ toJSON(github.event) }}'
           echo '${{ toJSON(github.event.pull_request.labels) }}' > labels.json
-          echo "cat labels  json"
+          echo "cat labels .... json"
