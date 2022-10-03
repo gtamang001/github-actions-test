@@ -1,29 +1,28 @@
 name: TEST OF PULL REQUEST FEATURES 
 on: 
-  pull_request: 
-    types: [closed]
+  pull_request:
 
 jobs: 
   test-pull-request-major:
     runs-on: ubuntu-latest
     steps: 
       - name: Test of pull request 
-        if: ${{ github.event.label == 'major'}}
+        # if: ${{ github.event.label == 'major'}}
         run: |
-          echo "Test where you are  major ${{github.ref}}"
+          echo "Test where you are  major ${{github.event.pull_request.label}}"
   test-pull-request-minor: 
     if: ${{ github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
     steps: 
       - name: Test of pull request 
-        if: ${{ github.event.label == 'minor'}}
+        # if: ${{ github.event.label == 'minor'}}
         run: |
-          echo "Test where you are  minor ${{github.ref}}"
+          echo "Test where you are  minor ${{github.event.pull_request.label}}"
   test-pull-request-patch: 
-    if: ${{ github.event.pull_request.merged == true }}
+    if: ${{ github.event.pull_request.label == bug }}
     runs-on: ubuntu-latest
     steps: 
       - name: Test of pull request
-        if: ${{ github.event.label == 'patch'}}
+        # if: ${{ github.event.label == 'patch'}}
         run: |
           echo "Test where you are patch ${{github.ref}}"
