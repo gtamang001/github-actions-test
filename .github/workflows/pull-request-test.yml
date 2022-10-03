@@ -14,7 +14,7 @@ jobs:
           echo '${{ toJSON(github.event) }}'
           echo '${{ toJSON(github.event.pull_request.labels) }}'
           echo "Finally"
-          echo "Test where you are  major ${{github.event.pull_request.labels.name}}"
+          echo "Test where you are  major ${{toJSON(github.event.pull_request.labels.name)}}"
   test-pull-request-minor: 
     if: ${{ github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
