@@ -12,22 +12,6 @@ jobs:
         # if: ${{ github.event.label == 'major'}}
         run: |
           echo '${{ toJSON(github.event) }}'
-          echo '${{ toJSON(github.event.pull_request.labels) }}'
-          echo "Finally"
-          echo "Test where you are  major ${{toJSON(github.event.pull_request.labels.name)}}"
-  test-pull-request-minor: 
-    if: ${{ github.event.pull_request.merged == true }}
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Test of pull request 
-        # if: ${{ github.event.label == 'minor'}}
-        run: |
-          echo "Test where you are  minor ${{github.event.pull_request.label}}"
-  test-pull-request-patch: 
-    if: ${{ github.event.pull_request.label == 'bug' }}
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Test of pull request
-        # if: ${{ github.event.label == 'patch'}}
-        run: |
-          echo "Test where you are patch ${{github.ref}}"
+          echo '${{ toJSON(github.event.pull_request.labels) }}' > labels.json
+          cat labels.json
+          jq
