@@ -18,3 +18,5 @@ jobs:
           pwd
           ls -lah
           cat ${{github.event_path}}
+          echo "check jq"
+          jq
