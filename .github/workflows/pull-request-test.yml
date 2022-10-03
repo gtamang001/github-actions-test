@@ -1,9 +1,9 @@
 name: TEST OF PULL REQUEST FEATURES 
 on: 
-  push:
-  # pull_request:
-  #   types:
-  #     - ready_for_review
+  # push:
+  pull_request:
+    types:
+      - ready_for_review
 
 jobs: 
   test-pull-request-major:
