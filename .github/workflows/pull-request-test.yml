@@ -14,7 +14,7 @@ jobs:
         run: |
           pwd
           ls -lah
-          cat ${{github.event_path}}/workflow/event.json
+          cat ${{github.event_path}}
           # echo '${{ toJSON(github.event) }}'
           # echo '${{ toJSON(github.event.pull_request.labels) }}' > labels.json
           # echo "cat labels .... json" 
