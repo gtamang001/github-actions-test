@@ -1,0 +1,31 @@
+name: Makes a cron commit 
+on:
+  schedule:
+    - cron: '0 8 * * *'
+jobs: 
+  cron-commit:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout 
+        uses: actions/checkout@v2
+        with: 
+          fetch-depth: '0'
+      - name: commit it 
+        run: |
+          git status
+          FILE=commit-file.txt
+          if [ -f "$FILE" ]; then
+              echo "$FILE exists."
+              echo "making the commit"
+              date > commit-file.txt
+          else 
+              echo "$FILE does not exist."
+              touch commit-file.txt
+              echo "making the commit now"
+              date > commit-file.txt
+          fi
+          git config --local user.email "ganga.bomzan@gmail.com"
+          git config --local user.name "Ganga Tamang"
+          git add -A
+          git commit -m "added todays date"
+          git push origin HEAD

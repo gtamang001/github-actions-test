@@ -1,3 +1,4 @@
+name: ACTION SYNTAX CHECK AND OR 
 on: 
   pull_request:
 jobs: 

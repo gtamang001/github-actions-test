@@ -1,0 +1,36 @@
+name: FIND OUT WHAT Environment
+on: 
+  push: 
+    branches: 
+      - feature-action-id-hold
+      - main
+
+jobs:
+  TEST:
+    runs-on: ubuntu-latest
+    steps:
+      - name: dev setup
+        id: environment
+        run: |
+          echo "running the feature action id branch stuff"
+          set -x
+          if [ "$GIT_REF" = "refs/heads/feature-action-id" ]; then
+          echo "Environment is setting for feature action id branch"
+          PATH="From feature action id"
+          echo "::set-output name=PATH::$PATH"
+          else
+          echo "Environment is setting for non feature action id branch"
+          PATH="From non feature action id"
+          echo "::set-output name=PATH::$PATH"
+          fi
+        shell: bash
+        env: 
+          GIT_REF: ${{github.ref}}
+
+
+      - name: Consume 
+        run: |
+          echo "Testing the PATH values"
+          echo "Which path"
+          environment='${{steps.environment.outputs.PATH}}'
+          echo "Path extracted is $environment"
