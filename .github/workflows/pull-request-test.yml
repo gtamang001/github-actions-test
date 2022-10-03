@@ -11,7 +11,7 @@ jobs:
       - name: Test of pull request 
         # if: ${{ github.event.label == 'major'}}
         run: |
-          echo "Test where you are  major ${{github.event_name.pull_request.label}}"
+          echo "Test where you are  major ${{github.event.pull_request.labels}}"
   test-pull-request-minor: 
     if: ${{ github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
