@@ -1,5 +1,6 @@
 name: Makes a cron commit 
 on:
+  push: 
   schedule:
     - cron: '0 8 * * *'
 jobs: 
@@ -10,20 +11,27 @@ jobs:
         uses: actions/checkout@v2
         with: 
           fetch-depth: '0'
+          ref: 'main'
       - name: commit it 
         run: |
+          set -x
           git status
+          git pull
           FILE=commit-file.txt
           if [ -f "$FILE" ]; then
               echo "$FILE exists."
               echo "making the commit"
+              date > commit-file.txt
+              echo "check if the changes are recorded"
+              cat commit-file.txt
               echo $date > commit-file.txt
               exit 0
           else 
               echo "$FILE does not exist."
               touch commit-file.txt
               echo "making the commit now"
-              echo $date > commit-file.txt
+              date > commit-file.txt
+              echo "Check if changes are recorded"
           fi
           git config --local user.email "ganga.bomzan@gmail.com"
           git config --local user.name "Ganga Tamang"

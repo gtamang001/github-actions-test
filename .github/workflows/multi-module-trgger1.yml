@@ -1,0 +1,15 @@
+name: TEST multi module trigger 1
+on:
+  push: 
+    branches: 
+      - feature-action-id
+    paths:
+      - 'test1/*'
+      - 'tst/*'
+jobs: 
+  trigger-on-tst:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Check if this runs 
+        run: |
+          echo "This trigger just happened from test1  or tst locations"

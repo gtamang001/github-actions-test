@@ -1,0 +1,15 @@
+name: TEST multi module trigger
+on:
+  push: 
+    branches: 
+      - feature-action-id
+    paths:
+      - 'dir/*'
+jobs: 
+  trigger-on-dir:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Check if this runs 
+        run: |
+          echo "This trigger just happened from dir location"
+          
