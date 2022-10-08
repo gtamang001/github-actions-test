@@ -25,7 +25,7 @@ jobs:
               echo "check if the changes are recorded"
               cat commit-file.txt
               echo $date > commit-file.txt
-              exit 0
+              # exit 0
           else 
               echo "$FILE does not exist."
               touch commit-file.txt
