@@ -1,11 +1,22 @@
 name: TEST OF PULL REQUEST FEATURES 
 on: 
-  pull_request: 
+  # push:
+  pull_request:
+    types:
+      - ready_for_review
 
 jobs: 
-  test-pull-request: 
+  test-pull-request-major:
     runs-on: ubuntu-latest
     steps: 
       - name: Test of pull request 
+        # if: ${{ github.event.label == 'major'}}
+                  # echo '${{ toJSON(github.event) }}'
+          # echo '${{ toJSON(github.event.pull_request.labels) }}' > labels.json
+          # echo "cat labels .... json
         run: |
-          echo "Test where you are ${{github.ref}}"
+          pwd
+          ls -lah
+          cat ${{github.event_path}}
+          echo "check jq"
+          which jq

@@ -1,0 +1,24 @@
+name: REPOSITORY DISPATCH CALLER 
+on: 
+  push:
+    branches:
+      - dispatch
+  repository_dispatch:
+    types: [return-event]
+jobs:
+  repository-dispatch-caller:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        id: trigger
+        if: ${{github.events != 'push'}}
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GH_ACTION_PAT }}
+          repository: gtamang001/javascript-actions
+          event-type: caller
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
+      - name: Respository receiver 
+        id: receiver
+        run: |
+          echo "Just receiving the trigger from the workflow"

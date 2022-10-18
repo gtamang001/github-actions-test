@@ -1,0 +1,20 @@
+[
+  {
+    "color": "d73a4a",
+    "default": true,
+    "description": "Something isn't working",
+    "id": 3566422463,
+    "name": "bug",
+    "node_id": "LA_kwDOGaCt_s7Uk0m_",
+    "url": "https://api.github.com/repos/gtamang001/github-actions-test/labels/bug"
+  },
+  {
+    "color": "0E8A16",
+    "default": false,
+    "description": "major label",
+    "id": 4605961409,
+    "name": "major",
+    "node_id": "LA_kwDOGaCt_s8AAAABEolkwQ",
+    "url": "https://api.github.com/repos/gtamang001/github-actions-test/labels/major"
+  }
+]

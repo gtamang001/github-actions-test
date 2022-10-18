@@ -1,0 +1,18 @@
+name: KUSTOMIZE TEST 
+on:
+  push: 
+    branches:
+      - outputs
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: install KUSTOMIZE
+        uses: imranismail/setup-kustomize@v2
+      - name: test
+        run: |
+          which kustomize
+          kustomize --help
+          
