@@ -14,7 +14,8 @@ jobs:
           ref: 'main'
       - name: commit it 
         run: |
-          set -x
+          git config --local user.email "ganga.bomzan@gmail.com"
+          git config --local user.name "Ganga Tamang"
           git status
           git pull
           FILE=commit-file.txt
@@ -24,17 +25,15 @@ jobs:
               date > commit-file.txt
               echo "check if the changes are recorded"
               cat commit-file.txt
-              echo $date > commit-file.txt
-              exit 0
           else 
               echo "$FILE does not exist."
               touch commit-file.txt
               echo "making the commit now"
               date > commit-file.txt
               echo "Check if changes are recorded"
+              cat commit-file.txt
           fi
-          git config --local user.email "ganga.bomzan@gmail.com"
-          git config --local user.name "Ganga Tamang"
+          git status
           git add -A
           git commit -m "added todays date"
           git push origin
