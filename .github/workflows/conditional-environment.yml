@@ -1,4 +1,4 @@
-name: FIND OUT WHAT Environment
+name: DEFINE ENV BASED ON CONDITIONS
 on: 
   push: 
     branches: 

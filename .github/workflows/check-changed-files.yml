@@ -1,5 +1,5 @@
 # tet workflow 
-name: test yaml 
+name: TEST GIT DIFF FILES
 on:
   workflow_dispatch:   
 jobs:

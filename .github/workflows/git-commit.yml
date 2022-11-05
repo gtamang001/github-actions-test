@@ -1,4 +1,4 @@
-name: Test commit 
+name: TEST GIT COMMIT
 on: 
   push: 
     branches: 

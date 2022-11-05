@@ -1,4 +1,4 @@
-name: test outputs from jobs
+name: TEST JOB OUTPUTS
 on: 
   push: 
     branches:
