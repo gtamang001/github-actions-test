@@ -1,4 +1,4 @@
-name: Build application
+name: ON CALL CALLER
 
 on: workflow_dispatch
 jobs:

@@ -1,4 +1,4 @@
-name: MANUAL WORKFLOW
+name: MANUAL WORKFLOW OPTIONS
 on:
   workflow_dispatch:
     inputs: 

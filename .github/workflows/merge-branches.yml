@@ -1,4 +1,4 @@
-name: Merge branches 
+name: MERGE BRANCHES IN ACTIONS
 on: 
   workflow_dispatch:
 jobs: 

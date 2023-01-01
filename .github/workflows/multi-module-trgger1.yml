@@ -1,4 +1,4 @@
-name: TEST multi module trigger 1
+name: TEST MULTI MODULE TRIGGER, DIR COMMIT TRIGGER
 on:
   push: 
     branches: 

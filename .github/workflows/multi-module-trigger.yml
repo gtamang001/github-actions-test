@@ -1,4 +1,4 @@
-name: TEST multi module trigger
+name: TEST MULTI MODULE TRIGGER ANOTHER WORKFLOW
 on:
   push: 
     branches: 

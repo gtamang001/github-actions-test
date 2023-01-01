@@ -1,4 +1,4 @@
-name: SNAPSHOT workflow 
+name: SNAPSHOT WORKFLOW
 on: 
   workflow_dispatch:
       

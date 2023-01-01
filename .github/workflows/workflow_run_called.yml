@@ -1,5 +1,5 @@
 # this action is calling another workflow
-name: Dependant job
+name: WORKFLOW RUN
 on:
   workflow_run:
     workflows: ["Build"]

@@ -1,5 +1,5 @@
 # this workflow is triggered via call from caller yml workflow or any other workflow s
-name: on call workflow 
+name: TEST ON WORKFLOW CALL
 on: 
   - workflow_call
 jobs: 

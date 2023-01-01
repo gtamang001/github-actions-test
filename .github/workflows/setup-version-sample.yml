@@ -1,4 +1,4 @@
-name: Continuous Delivery Version
+name: EXRACT VERSION FROM TAGS
 on:
   workflow_dispatch:
     inputs:
