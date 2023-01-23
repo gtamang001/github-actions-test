@@ -1,0 +1,20 @@
+name: release test 
+on: 
+  release:
+    types: [prereleased]
+jobs:
+  test-release: 
+    runs-on: ubuntu-latest
+    steps: 
+      - name: checkout 
+        uses: actions/checkout@v3
+      - name: add a commit 
+        if: "!github.event.release.prerelease"
+        run: |
+          echo "testing it.."
+          echo " is not equal to the prelease hence release"
+      - name: add a commit 
+        if: "github.event.release.prerelease"
+        run: |
+          echo "testing it.."
+          echo "This is prerelease hence don't release it..."
