@@ -1,7 +1,8 @@
 name: release test 
 on: 
   release:
-    type: [published]
+    - published
+    - released
 
 jobs:
   test-release: 
